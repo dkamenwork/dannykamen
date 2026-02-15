@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hire Danny Kamen</title>
+  <meta name="description" content="Schedule a Zoom with Danny Kamen." />
+
+  <style>
+    :root{
+      --bg:#000000;
+      --green:#00ff66;
+      --white:#ffffff;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: var(--bg);
+      color: var(--green);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      overflow: hidden; /* one-screen landing page */
+    }
+
+    /* Subtle scanline / vignette vibe */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at center, rgba(0,255,102,0.08), transparent 55%),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(255,255,255,0.03) 0px,
+          rgba(255,255,255,0.03) 1px,
+          transparent 2px,
+          transparent 5px
+        );
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: 0.45;
+    }
+
+    .wrap{
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      cursor: pointer; /* reinforces click-anywhere */
+      user-select: none;
+    }
+
+    .stack{
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+    }
+
+    h1{
+      margin: 0;
+      font-size: clamp(40px, 6vw, 84px);
+      letter-spacing: 0.04em;
+      line-height: 1.05;
+      text-transform: none;
+      color: var(--green);
+      text-shadow:
+        0 0 12px rgba(0,255,102,0.35),
+        0 0 36px rgba(0,255,102,0.2);
+      animation: flashWhite 3s infinite;
+    }
+
+    /* Flash white briefly every 3 seconds */
+    @keyframes flashWhite {
+      0%, 88% {
+        color: var(--green);
+        text-shadow:
+          0 0 12px rgba(0,255,102,0.35),
+          0 0 36px rgba(0,255,102,0.2);
+        filter: none;
+      }
+      90% {
+        color: var(--white);
+        text-shadow:
+          0 0 10px rgba(255,255,255,0.8),
+          0 0 30px rgba(255,255,255,0.6);
+        filter: brightness(1.4);
+      }
+      92% {
+        color: var(--green);
+        text-shadow:
+          0 0 12px rgba(0,255,102,0.35),
+          0 0 36px rgba(0,255,102,0.2);
+        filter: none;
+      }
+      100% {
+        color: var(--green);
+      }
+    }
+
+    .btn{
+      appearance: none;
+      border: 1px solid rgba(0,255,102,0.65);
+      background: rgba(0, 255, 102, 0.08);
+      color: var(--green);
+      font-size: 18px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 16px 28px;
+      border-radius: 14px;
+      box-shadow:
+        0 0 0 1px rgba(0,255,102,0.15) inset,
+        0 10px 30px rgba(0,0,0,0.55),
+        0 0 24px rgba(0,255,102,0.18);
+      transform: translateY(18px) scale(0.86);
+      opacity: 0;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      animation: dramaticPop 900ms cubic-bezier(.2,1.4,.3,1) 450ms forwards;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* “Dramatic” pop-in */
+    @keyframes dramaticPop {
+      0%   { opacity: 0; transform: translateY(22px) scale(0.70) rotate(-1deg); }
+      60%  { opacity: 1; transform: translateY(-6px) scale(1.07) rotate(0deg); }
+      80%  { opacity: 1; transform: translateY(2px) scale(0.98); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Shimmer sweep */
+    .btn::after{
+      content:"";
+      position:absolute;
+      inset:-40% -60%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transform: rotate(12deg) translateX(-60%);
+      animation: shimmer 2.7s ease-in-out 1.2s infinite;
+      pointer-events:none;
+    }
+    @keyframes shimmer {
+      0%, 60% { transform: rotate(12deg) translateX(-70%); opacity: 0; }
+      70% { opacity: 1; }
+      100% { transform: rotate(12deg) translateX(85%); opacity: 0; }
+    }
+
+    .btn:hover{
+      background: rgba(0, 255, 102, 0.13);
+      box-shadow:
+        0 0 0 1px rgba(0,255,102,0.22) inset,
+        0 16px 44px rgba(0,0,0,0.55),
+        0 0 34px rgba(0,255,102,0.28);
+      transform: translateY(-1px) scale(1.03);
+    }
+    .btn:active{
+      transform: translateY(0px) scale(0.99);
+    }
+
+    .hint{
+      margin-top: 4px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      opacity: 0.55;
+      color: rgba(0,255,102,0.8);
+    }
+
+    /* accessibility: reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      h1, .btn, .btn::after { animation: none !important; }
+      .btn { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap" id="clickSurface" aria-label="Hire Danny Kamen landing page">
+    <div class="stack">
+      <h1>Hire Danny Kamen</h1>
+
+      <button class="btn" id="cta" type="button" aria-label="Schedule a meeting">
+        click here
+      </button>
+
+      <div class="hint">click anywhere to schedule</div>
+    </div>
+  </main>
+
+  <script>
+    // 1) Paste your scheduling/booking URL here:
+    // Examples: Calendly link, Google Appointment Schedule booking page link, etc.
+    const BOOKING_URL = "https://YOUR-BOOKING-LINK-HERE";
+
+    // Prevent accidental double-open on rapid clicks/taps
+    let lastOpen = 0;
+    const COOLDOWN_MS = 1200;
+
+    function openBooking() {
+      if (!BOOKING_URL || BOOKING_URL.includes("YOUR-BOOKING-LINK-HERE")) {
+        alert("Paste your booking URL into BOOKING_URL in index.html");
+        return;
+      }
+      const now = Date.now();
+      if (now - lastOpen < COOLDOWN_MS) return;
+      lastOpen = now;
+
+      // Open in a new tab (best for preserving the landing page)
+      window.open(BOOKING_URL, "_blank", "noopener,noreferrer");
+    }
+
+    // Click anywhere opens booking
+    document.getElementById("clickSurface").addEventListener("click", openBooking);
+
+    // Button also opens booking (and stops click from firing twice)
+    document.getElementById("cta").addEventListener("click", (e) => {
+      e.stopPropagation();
+      openBooking();
+    });
+
+    // Keyboard support: Enter/Space triggers button when focused (default),
+    // but also allow Enter anywhere
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") openBooking();
+    });
+  </script>
+</body>
+</html>
